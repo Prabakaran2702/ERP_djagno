@@ -1,0 +1,8 @@
+asgiref==3.8.1
+Django==4.2.14
+django-migration-zero==2.1.0
+mysqlclient==2.2.4
+python-dotenv==1.0.1
+sqlparse==0.5.0
+typing_extensions==4.12.2
+tzdata==2024.1

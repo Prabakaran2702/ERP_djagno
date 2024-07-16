@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <!-- Meta, title, CSS, favicons, etc. -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>DataTables | Gentelella</title>
+      <!-- Bootstrap -->
+      <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+      <link href="{% static 'vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+      <!-- Font Awesome -->
+      <link href="{% static 'vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+      <!-- NProgress -->
+      <link href="{% static 'vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+      <!-- PNotify -->
+      <link href="{% static 'vendors/pnotify/dist/pnotify.css' %}" rel="stylesheet">
+      <link href="{% static 'vendors/pnotify/dist/pnotify.buttons.css' %}" rel="stylesheet">
+      <link href="{% static 'vendors/pnotify/dist/pnotify.nonblock.css' %}" rel="stylesheet">
+      <!-- iCheck -->
+      <link href="{% static 'vendors/iCheck/skins/flat/green.css' %}" rel="stylesheet">
+      <!-- Datatables -->
+      <link href="{% static 'vendors/datatables.net-bs/css/dataTables.bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css' %}" rel="stylesheet">
+      <!-- bootstrap-wysiwyg -->
+      <link href="{% static 'vendors/google-code-prettify/bin/prettify.min.css' %}" rel="stylesheet">
+      <!-- Select2 -->
+      <link href="{% static 'vendors/select2/dist/css/select2.min.css' %}" rel="stylesheet">
+      <!-- Switchery -->
+      <link href="{% static 'vendors/switchery/dist/switchery.min.css' %}" rel="stylesheet">
+      <!-- starrr -->
+      <link href="{% static 'vendors/starrr/dist/starrr.css' %}" rel="stylesheet">
+      <!-- bootstrap-daterangepicker -->
+      <link href="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+      <!-- Custom Theme Style -->
+      <link href="{% static 'build/css/custom.min.css' %}" rel="stylesheet">
+   </head>
+   <body class="nav-md">
+      <div class="container body">
+         <div class="main_container">
+            <!-- sidebar menu -->
+            {% include 'sidenavbar.html' %}
+            <!-- /sidebar menu -->
+            <!-- top navigation -->
+            {% include 'topnavbar.html' %}
+            <!-- /top navigation -->
+            <!-- page content -->
+            {% block content %}
+            {% endblock %}
+            <!-- /page content -->
+            <!-- footer content -->
+            {% include 'footer.html' %}
+            <!-- /footer content -->
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="{% static 'vendors/jquery/dist/jquery.min.js' %}"></script>
+      <!-- Bootstrap -->
+      <script src="{% static 'vendors/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+      <!-- FastClick -->
+      <script src="{% static 'vendors/fastclick/lib/fastclick.js' %}"></script>
+      <!-- NProgress -->
+      <script src="{% static 'vendors/nprogress/nprogress.js' %}"></script>
+      <!-- iCheck -->
+      <script src="{% static 'vendors/iCheck/icheck.min.js' %}"></script>
+      <!-- Datatables -->
+      <script src="{% static 'vendors/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-keytable/js/dataTables.keyTable.min.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js' %}"></script>
+      <script src="{% static 'vendors/datatables.net-scroller/js/dataTables.scroller.min.js' %}"></script>
+      <script src="{% static 'vendors/jszip/dist/jszip.min.js' %}"></script>
+      <script src="{% static 'vendors/pdfmake/build/pdfmake.min.js' %}"></script>
+      <script src="{% static 'vendors/pdfmake/build/vfs_fonts.js' %}"></script>
+      <!-- PNotify -->
+      <script src="{% static 'vendors/pnotify/dist/pnotify.js' %}"></script>
+      <script src="{% static 'vendors/pnotify/dist/pnotify.buttons.js' %}"></script>
+      <script src="{% static 'vendors/pnotify/dist/pnotify.nonblock.js' %}"></script>
+      <!-- bootstrap-daterangepicker -->
+      <script src="{% static 'vendors/moment/min/moment.min.js' %}"></script>
+      <script src="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+      <!-- bootstrap-wysiwyg -->
+      <script src="{% static 'vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js' %}"></script>
+      <script src="{% static 'vendors/jquery.hotkeys/jquery.hotkeys.js' %}"></script>
+      <script src="{% static 'vendors/google-code-prettify/src/prettify.js' %}"></script>
+      <!-- jQuery Tags Input -->
+      <script src="{% static 'vendors/jquery.tagsinput/src/jquery.tagsinput.js' %}"></script>
+      <!-- Switchery -->
+      <script src="{% static 'vendors/switchery/dist/switchery.min.js' %}"></script>
+      <!-- Select2 -->
+      <script src="{% static 'vendors/select2/dist/js/select2.full.min.js' %}"></script>
+      <!-- Parsley -->
+      <script src="{% static 'vendors/parsleyjs/dist/parsley.min.js' %}"></script>
+      <!-- Autosize -->
+      <script src="{% static 'vendors/autosize/dist/autosize.min.js' %}"></script>
+      <!-- jQuery autocomplete -->
+      <script src="{% static 'vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js' %}"></script>
+      <!-- starrr -->
+      <script src="{% static 'vendors/starrr/dist/starrr.js' %}"></script>
+      <!-- Custom Theme Scripts -->
+      <script src="{% static 'build/js/custom.min.js' %}"></script>
+      <script>
+         $(document).ready(function() {
+         	// Initialize Bootstrap tooltip
+         	$('[data-toggle="tooltip"]').tooltip();
+         
+         	// Handle click event
+         	$('#fullscreenButton').click(function() {
+         		toggleFullScreen();
+         	});
+         
+         	// Function to toggle fullscreen mode
+         	function toggleFullScreen() {
+         		if (!document.fullscreenElement &&    // alternative standard method
+         			!document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
+         			if (document.documentElement.requestFullscreen) {
+         				document.documentElement.requestFullscreen();
+         			} else if (document.documentElement.msRequestFullscreen) {
+         				document.documentElement.msRequestFullscreen();
+         			} else if (document.documentElement.mozRequestFullScreen) {
+         				document.documentElement.mozRequestFullScreen();
+         			} else if (document.documentElement.webkitRequestFullscreen) {
+         				document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+         			}
+         		} else {
+         			if (document.exitFullscreen) {
+         				document.exitFullscreen();
+         			} else if (document.msExitFullscreen) {
+         				document.msExitFullscreen();
+         			} else if (document.mozCancelFullScreen) {
+         				document.mozCancelFullScreen();
+         			} else if (document.webkitExitFullscreen) {
+         				document.webkitExitFullscreen();
+         			}
+         		}
+         	}
+         });
+      </script>
+      <script>
+         $(document).ready(function() {
+            // Delete button click event
+            $('.del-btn').click(function() {
+                var prodId = $(this).data('prod-id');
+                var prodname = $(this).data('prod-name');
+                $('#confirmDeleteModal').find('.modal-body h4').text('Are you sure you want to delete "' + prodname + '"?');
+                $('#confirmDeleteModal').modal('show');
+
+                $('#confirmDeleteBtn').click(function() {
+                    $.ajax({
+                        url: "{% url 'product_master:delete_view' 0 %}".replace('0', prodId),
+                        type: 'POST',
+                        data: {
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                            object_id: prodId
+                        },
+                        success: function(response) {
+                            $('#alert_notification_2').click();
+                            $('#confirmDeleteModal').modal('hide'); 
+                            location.reload();                            
+                        },
+                        error: function(xhr, status, error) {
+                            // Handle error
+                            console.error('Error deleting object:', error);
+                        }
+                    });
+                })
+               
+            });
+
+           // View button click event
+           $('.view-btn').click(function(e) {
+             e.preventDefault();
+             var prodId = $(this).data('prod-id');
+                 // Send AJAX POST request
+                 $.ajax({
+                   type: 'GET',
+                   url: "{% url 'product_master:detail_view' 0 %}".replace('0', prodId),  // Adjust URL as per your Django URL configuration
+                   data: '',
+                   dataType: 'json',  // Expected data type from the server
+                   success: function(response) {
+                       
+                       console.log('Data updated successfully:', response);
+                       $('#view_modal').click();
+                       // Update the row with the new values
+                       $('#cat_prod').html(response.category);
+                       $('#name_prod').val(response.name);
+                       $('#qty_prod').val(response.quantity);
+                       $('#desc_prod').val(response.description);
+                       $('#price_prod').val(response.price);
+                       $('#date_prod').val(response.published_date);
+                       
+                   },
+                   error: function(error) {
+                       console.error('Error updating data:', error);
+                       // Handle errors or show error message
+                   }
+               });
+           });
+           // Edit button click event
+          
+         $(document).on('click', '.edit-btn', function(e) {
+             e.preventDefault();
+             var prodId = $(this).data('prod-id');
+         
+             // Replace td with input fields for product data
+             $('#prod_row_' + prodId + ' td[id^="prod_"]').each(function() {
+                 var tdId = $(this).attr('id');
+                 var fieldVal = $(this).text().trim();
+                 $(this).html('<input type="text" class="form-control" id="_' + tdId + '" value="' + fieldVal + '">');
+             });
+         
+             // Change Edit button to Save button
+             $(this).html('<i class="fa fa-save"></i> Save').removeClass('edit-btn').addClass('save-btn');
+           });
+         
+         
+         $(document).on('click', '.save-btn', function(e) {
+           e.preventDefault();
+           var prodId = $(this).data('prod-id');
+         
+           // Prepare data object with updated values from input fields
+           var data = {
+               'name': $('#_prod_name_' + prodId).val(),
+               'quantity': $('#_prod_quantity_' + prodId).val(),
+               'desc': $('#_prod_desc_' + prodId).val(),
+               'price': $('#_prod_price_' + prodId).val(),
+               'published_date': $('#_prod_published_date_' + prodId).val(),
+               'csrfmiddlewaretoken': '{{ csrf_token }}'
+           };
+         
+           // Send AJAX request to update data
+           $.ajax({
+               type: 'POST',
+               url: "{% url 'product_master:update_view' 0 %}".replace('0', prodId),
+               data: data,
+               success: function(response) {
+                   // Handle success response
+                   console.log('Update Successful:', response);
+                   $('#alert_notification').click();
+                   // Update UI: Replace input fields with updated values
+                   $('#prod_row_' + prodId + ' td[id^="prod_"]').each(function() {
+                       var tdId = $(this).attr('id');
+                       var inputVal = $('#_' + tdId).val();
+                       $(this).html(inputVal);
+                   });
+         
+                   // Change Save button back to Edit button
+                   $('#prod_row_' + prodId + ' .save-btn').html('<i class="fa fa-pencil"></i> Edit').removeClass('save-btn').addClass('edit-btn');
+               },
+               error: function(xhr, status, error) {
+                   // Handle error
+                   console.error('Update Error:', error);
+               }
+           });
+         });
+         
+         
+         });
+             
+      </script>
+   </body>
+</html>

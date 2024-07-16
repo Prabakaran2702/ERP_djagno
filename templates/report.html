@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="right_col" role="main">
+   <div class="">
+      <div class="page-title">
+         <div class="title_left">
+            <h3>Generate Report</h3>
+         </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="row">
+         <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+               <div class="x_content">
+                  <div class="row">
+                     <div class="col-md-12 col-sm-12 ">
+                        <div class="x_panel">
+                           <div class="x_content">
+                              <br />
+                              <form class="form-label-left input_mask" method="post" action="{% url 'product_master:reports_view' %}">
+                                 {% csrf_token %}
+                                 <div class="col-md-6 col-sm-6  form-group has-feedback">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Select <span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                  
+                                        <select class="form-control" required="required" name="category_id">
+                                        {% for cat in category %}
+                                        <option value="{{cat.id}}" {% if cat.id == selected_cat %} selected {% endif %}>{{cat.Category}}</option>
+                                        {% endfor %}
+                                        </select>
+
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 col-sm-6  form-group has-feedback">
+                                    <label class="col-form-label col-md-3 col-sm-3 ">Published Date<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 ">
+                                       <input id="birthday" {% if date %} value="{{date}}" {% endif %} name="created_date" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'">
+                                       <script>    
+                                          // Function to format date as yyyy-mm-dd
+                                          function formatDate(date) {
+                                              var d = new Date(date),
+                                                  month = '' + (d.getMonth() + 1),
+                                                  day = '' + d.getDate(),
+                                                  year = d.getFullYear();
+                                          
+                                              if (month.length < 2) month = '0' + month;
+                                              if (day.length < 2) day = '0' + day;
+                                          
+                                              return [year, month, day].join('-');
+                                          }
+                                          
+                                          // Set the current date as the default value
+                                          document.addEventListener('DOMContentLoaded', function() {
+                                              var today = new Date();
+                                              
+                                          });
+                                                            
+                                       </script>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-9 col-sm-9  offset-md-3 text-right">
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     {% if products or date %}
+                     <div class="col-md-12 col-sm-12 ">
+                        <div class="x_panel">
+                           <div class="x_content">
+                              <br />
+                              <div class="col-md-12 col-sm-12  ">
+                                 <div class="x_panel">
+                                    <div class="x_content">
+                                       <div class="table-responsive">
+                                          <table class="table table-striped jambo_table bulk_action">
+                                             <thead>
+                                                <tr class="headings">
+                                                   <th class="column-title">Name </th>
+                                                   <th class="column-title">Quantity </th>
+                                                   <th class="column-title">Description</th>
+                                                   <th class="column-title">price </th>
+                                                   <th class="column-title">Published Date </th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                {% for prod in products %}
+                                                <tr class="even pointer">
+                                                   <td class=" ">{{prod.name}}</td>
+                                                   <td class=" ">{{prod.quantity}}</td>
+                                                   <td class=" ">{{prod.desc}}</td>
+                                                   <td class=" ">{{prod.price}}</td>
+                                                   <td class=" ">{{prod.published_date}}</td>
+                                                   </td>
+                                                </tr>
+                                                {% empty %}
+                                                <tr>
+                                                    <td colspan="5" align="center">No data..</td>
+                                                </tr>
+                                                {% endfor %}
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     {% endif%}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

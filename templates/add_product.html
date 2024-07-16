@@ -1,0 +1,97 @@
+{% extends 'base.html '%}
+{% block content %}
+<div class="right_col" role="main">
+   <div class="">
+      <div class="page-title">
+         <div class="title_left">
+            <h3>Create New Product</h3>
+         </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="row">
+         <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+               <div class="x_content">
+                  <br />
+                  <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{% url 'product_master:create_view'%}">
+                     {% csrf_token %}
+                     <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Select <span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 ">
+                           <select class="form-control" required="required" name="category_id">
+                              {% for category in category %}
+                              <option value="{{category.id}}">{{category.Category}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                     <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="product-name">Product Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                           <input type="text" id="product-name" name="name" required="required" class="form-control ">
+                        </div>
+                     </div>
+                     <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="quantity">Quantity<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                           <input type="text" id="quantity" name="quantity" required="required" class="form-control">
+                        </div>
+                     </div>
+                     <div class="item form-group">
+                        <label for="description" class="col-form-label col-md-3 col-sm-3 label-align">Description</label>
+                        <div class="col-md-6 col-sm-6 ">
+                           <input id="description" name="description" class="form-control" type="text" name="description">
+                        </div>
+                     </div>
+                     <div class="item form-group">
+                        <label for="amount" class="col-form-label col-md-3 col-sm-3 label-align">Price</label>
+                        <div class="col-md-6 col-sm-6 ">
+                           <input id="amount" class="form-control" required="required" type="text" name="amount">
+                        </div>
+                     </div>
+                     <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Created Date <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                           <input id="birthday" name="created_date" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'">
+                           <script>
+                          
+                              // Function to format date as yyyy-mm-dd
+                              function formatDate(date) {
+                                  var d = new Date(date),
+                                      month = '' + (d.getMonth() + 1),
+                                      day = '' + d.getDate(),
+                                      year = d.getFullYear();
+                              
+                                  if (month.length < 2) month = '0' + month;
+                                  if (day.length < 2) day = '0' + day;
+                              
+                                  return [year, month, day].join('-');
+                              }
+                              
+                              // Set the current date as the default value
+                              document.addEventListener('DOMContentLoaded', function() {
+                                  var today = new Date();
+                                  document.getElementById('birthday').value = formatDate(today);
+                              });
+                           </script>
+                        </div>
+                     </div>
+                     <div class="ln_solid"></div>
+                     <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 offset-md-3">
+                           <button class="btn btn-primary" type="button">Cancel</button>
+                           <button class="btn btn-primary" type="reset">Reset</button>
+                           <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}
