@@ -64,7 +64,7 @@ class DetailProduct(LoginRequiredMixin,DetailView):
         if request.headers.get('x-requested-with') == 'XMLHttpRequest':
             # Handle AJAX request
             product = self.get_object()
-            print(product.category,'product.category',type(product.category))
+            
 
             data = {
                 'id': product.id,
