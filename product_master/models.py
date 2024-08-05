@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
@@ -8,7 +10,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.Category
-    
+    class Meta:
+        db_table = 'category'
+
 class ProductMaster(models.Model):
     name = models.CharField(max_length=50,verbose_name='Product Name')
     quantity = models.IntegerField(verbose_name='Quantity Available')
@@ -17,8 +21,18 @@ class ProductMaster(models.Model):
     published_date = models.DateField(default=None, null=True, verbose_name='Published Date')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', verbose_name='Category')
 
+    class Meta:
+        db_table = 'product_master'
 
     def __str__(self):
-        return self.name
+        return self.name        
+
+class CustomerOrders(models.Model):
+    id = models.IntegerField(primary_key=True)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Customer') 
+    order_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
+    product = models.ForeignKey(ProductMaster, on_delete=models.CASCADE, related_name='orders', verbose_name='Product')  
 
 
+    class Meta:
+        db_table = 'customer_orders'

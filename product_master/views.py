@@ -12,7 +12,14 @@ class ListProduct(LoginRequiredMixin,ListView):
     model = ProductMaster
     template_name = 'product_list.html'
     context_object_name = 'products' 
-
+    paginate_by = 1
+    
+    def get_queryset(self):
+        query = self.request.GET.get('query', '')
+        if query:
+            return ProductMaster.objects.filter(name__icontains=query)
+        else:
+            return ProductMaster.objects.all()
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -41,7 +48,7 @@ class CreateProduct(LoginRequiredMixin, CreateView):
         
          # Get the Category instance
         category = get_object_or_404(Category, id=category_id)
-
+        
         # Create ProductMaster instance
         product = ProductMaster.objects.create(
             name=name,
@@ -51,7 +58,7 @@ class CreateProduct(LoginRequiredMixin, CreateView):
             published_date=created_date,
             category= category
         ).save()
-
+        print(category.products.all())
         # Redirect to success URL or handle as needed
         return redirect(self.success_url)
     

@@ -36,27 +36,6 @@
                                     </label>
                                     <div class="col-md-9 col-sm-9 ">
                                        <input id="birthday" {% if date %} value="{{date}}" {% endif %} name="created_date" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'">
-                                       <script>    
-                                          // Function to format date as yyyy-mm-dd
-                                          function formatDate(date) {
-                                              var d = new Date(date),
-                                                  month = '' + (d.getMonth() + 1),
-                                                  day = '' + d.getDate(),
-                                                  year = d.getFullYear();
-                                          
-                                              if (month.length < 2) month = '0' + month;
-                                              if (day.length < 2) day = '0' + day;
-                                          
-                                              return [year, month, day].join('-');
-                                          }
-                                          
-                                          // Set the current date as the default value
-                                          document.addEventListener('DOMContentLoaded', function() {
-                                              var today = new Date();
-                                              
-                                          });
-                                                            
-                                       </script>
                                     </div>
                                  </div>
                                  <div class="col-md-9 col-sm-9  offset-md-3 text-right">

@@ -39,6 +39,7 @@
       <link href="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
       <!-- Custom Theme Style -->
       <link href="{% static 'build/css/custom.min.css' %}" rel="stylesheet">
+      <link href="{% static 'build/css/custom.css' %}" rel="stylesheet">
    </head>
    <body class="nav-md">
       <div class="container body">
@@ -167,8 +168,12 @@
                         },
                         success: function(response) {
                             $('#alert_notification_2').click();
-                            $('#confirmDeleteModal').modal('hide'); 
-                            location.reload();                            
+                            $('#confirmDeleteModal').modal('hide');
+
+                            // Wait for 3 seconds before reloading the page
+                            setTimeout(function() {
+                                location.reload(); // 3000 milliseconds = 3 seconds
+                            }, 3000);
                         },
                         error: function(xhr, status, error) {
                             // Handle error
